@@ -1,10 +1,11 @@
 // PROGRAM TO DO A SIMPLE EMPLOYEE REGISTRATION ON CONSOLE
-#include"Runner.h"
+#include "File.h"
 
 const char* fileName = "data.txt";
-int main() {
-	Runner run;
-	run.FileChecker();
 
-	return 0;
+Passer Pass;  // Define Pass
+
+int main() {
+    Pass.Engine.FileChecker();
+    return 0;
 }

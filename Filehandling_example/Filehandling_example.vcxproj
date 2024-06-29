@@ -143,13 +143,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaseHandling.cpp" />
     <ClCompile Include="File.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Runner.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseHandling.h" />
     <ClInclude Include="File.h" />
-    <ClInclude Include="Runner.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
