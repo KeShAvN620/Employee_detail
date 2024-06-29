@@ -13,7 +13,7 @@ void File::ReadFile(){
 }
 
 void File::SelectMenu(){
-	system("cls");						  // clear window
+	ClearScreen();						  // clear window
 	 unsigned int menuChoose;
 	std::cout << "Which Operation you want to operate \n"
 		<< "1. Display total data \n"
@@ -26,7 +26,7 @@ void File::SelectMenu(){
 
 	std::cin >> menuChoose;
 	if (menuChoose < 1 || menuChoose > 6) {
-		std::cout << "Please enter number from 0 to 6";
+		std::cout << "Please enter number from 1 to 6";
 		exit(1);
 	}
 
@@ -53,7 +53,7 @@ void File::SelectMenu(){
 
 
 void File::DisplayData(){
-	system("cls");
+	ClearScreen();
 
 	for ( unsigned int i = 0; i < eID.size(); i++) {
 		std::cout <<"SN = "<< std::setw(3) << i+1 << "   " << "ID = " << eID[i] << "     " << "Name = " << std::setw(15) << eName[i] << "     " << "Salary = " << eSalary[i] << std::endl ;
@@ -65,7 +65,7 @@ void File::DisplayData(){
 
 void File::DisplaySpecialData(){
 	unsigned int tempID;
-	system("cls");                  // clear window
+	ClearScreen();                // clear window
 	unsigned int maxRange = 100 + eID.size();
 	std::cout <<"Total id from 101 to  "<< maxRange << "  " << "Enter Person Id = " << std::endl;
 	std::cin >> tempID; 
@@ -82,22 +82,32 @@ void File::DisplaySpecialData(){
 }
 
 void File::AddData(){
-	system("cls");   // clear window
+	ClearScreen(); // clear window
 }
 
 void File::Overwrite(){
-	system("cls");// clear window
+	ClearScreen(); // clear window
 }
 
 void File::DeleteData(){
-	system("cls");// clear window
+	ClearScreen(); // clear window
 }
 
-void File::BackToMenu()
-{
+void File::BackToMenu(){
 	char flag;
 	std::cout << "To menu: write 'Y/y'" << std::endl;
 	std::cin >> flag;
 	if (flag == 'Y' || flag == 'y') { SelectMenu(); }
 	exit(0);
+}
+
+void File::ClearScreen(){
+#if defined(_WIN32) || defined(_WIN64)
+		system("cls");  // Clear the screen on Windows
+#elif defined(__linux__) || defined(__unix__) || defined(__APPLE__) && defined(__MACH__)
+		system("clear");  // Clear the screen on Linux/Unix/macOS
+#else
+		std::cerr << "Unsupported platform for screen clearing." << std::endl;
+#endif
+	
 }

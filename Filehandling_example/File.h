@@ -25,5 +25,8 @@ public:
 	void Overwrite();
 	void DeleteData();
 	void BackToMenu();
+
+private:
+	void ClearScreen();
 };
 
