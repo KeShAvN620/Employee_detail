@@ -12,6 +12,9 @@ void File::ReadFile(){
 	fileRead.close();
 }
 
+
+
+
 void File::SelectMenu(){
 	ClearScreen();						  // clear window
 	 unsigned int menuChoose;
@@ -23,6 +26,9 @@ void File::SelectMenu(){
 		<< "5. Delete a whole data set \n"
 		<< "6. Exit program \n"
 		<< std::endl;
+
+
+
 
 	std::cin >> menuChoose;
 	if (menuChoose < 1 || menuChoose > 6) {
@@ -52,24 +58,27 @@ void File::SelectMenu(){
 
 
 
+
 void File::DisplayData(){
 	ClearScreen();
 
 	for ( unsigned int i = 0; i < eID.size(); i++) {
-		std::cout <<"SN = "<< std::setw(3) << i+1 << "   " << "ID = " << eID[i] << "     " << "Name = " << std::setw(15) << eName[i] << "     " << "Salary = " << eSalary[i] << std::endl ;
+		std::cout << "ID = " << std::setw(3) << eID[i] << "     " << "Name = " << std::setw(20) << eName[i] << "     " << "Salary = " << eSalary[i] << std::endl;
 	}
 	std::cout<< std::endl << std::endl;
 	BackToMenu();
 }
 
 
+
+
 void File::DisplaySpecialData(){
 	unsigned int tempID;
 	ClearScreen();                // clear window
-	unsigned int maxRange = 100 + eID.size();
-	std::cout <<"Total id from 101 to  "<< maxRange << "  " << "Enter Person Id = " << std::endl;
+	unsigned int maxRange = eID.size();
+	std::cout <<"Total id from 1 to  "<< maxRange << "  " << "Enter Person Id = " << std::endl;
 	std::cin >> tempID; 
-	if (tempID <= 100 || tempID > maxRange) { std::cout << "Please enter Id from given range  "; exit(1); }
+	if (tempID <= 0 || tempID > eID.size()) { std::cout << "Please enter Id from given range  "; exit(1); }
 	for (unsigned i = 0; i < eID.size(); i++) {
 		if (eID[i] == tempID) {
 			std::cout << "Employee Id    = " << eID[i] << std::endl;
@@ -81,8 +90,28 @@ void File::DisplaySpecialData(){
 	BackToMenu();
 }
 
+
+
+
+
+
 void File::AddData(){
 	ClearScreen(); // clear window
+	float tempSalary;
+	std::string tempName;
+		char flag;
+	do {
+		eID.push_back(eID.size() + 1);
+		std::cout << "Enter Employee Name = " << std::endl;
+		std::cin >> tempName;
+		std::cout << "Enter Employee Salary = " << std::endl;
+		std::cin >> tempSalary;
+		eName.push_back(tempName);
+		eSalary.push_back(tempSalary);
+		std::cout << "Want to add more press Y/y = ";
+		std::cin >> flag;
+	} while (flag == 'Y' || flag == 'y');
+	BackToMenu();
 }
 
 void File::Overwrite(){
@@ -92,6 +121,24 @@ void File::Overwrite(){
 void File::DeleteData(){
 	ClearScreen(); // clear window
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void File::BackToMenu(){
 	char flag;
