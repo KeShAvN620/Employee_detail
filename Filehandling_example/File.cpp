@@ -82,15 +82,15 @@ void File::DisplaySpecialData(){
 }
 
 void File::AddData(){
-	// clear window
+	system("cls");   // clear window
 }
 
 void File::Overwrite(){
-	// clear window
+	system("cls");// clear window
 }
 
 void File::DeleteData(){
-	// clear window
+	system("cls");// clear window
 }
 
 void File::BackToMenu()
