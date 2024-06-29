@@ -56,8 +56,9 @@ void File::DisplayData(){
 	system("cls");
 
 	for ( unsigned int i = 0; i < eID.size(); i++) {
-		std::cout <<"SN = "<< std::setw(3) << i+1 << "   " << "ID = " << eID[i] << "     " << "Name = " << std::setw(15) << eName[i] << "     " << "Salary = " << eSalary[i] << std::endl << std::endl << std::endl;
+		std::cout <<"SN = "<< std::setw(3) << i+1 << "   " << "ID = " << eID[i] << "     " << "Name = " << std::setw(15) << eName[i] << "     " << "Salary = " << eSalary[i] << std::endl ;
 	}
+	std::cout<< std::endl << std::endl;
 	BackToMenu();
 }
 
