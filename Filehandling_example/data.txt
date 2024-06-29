@@ -1,0 +1,44 @@
+101
+John Doe
+50000
+Manager
+102
+Jane Smith
+60000
+Engineer
+103
+Michael Johnson
+55000
+Sales Representative
+104
+Emily Davis
+52000
+HR Specialist
+105
+Robert Brown
+48000
+Accountant
+106
+Jennifer Wilson
+51000
+Software Developer
+107
+David Martinez
+58000
+Marketing Manager
+108
+Sarah Thompson
+54000
+Operations Coordinator
+109
+Daniel Garcia
+49000
+Customer Service Representative
+110
+Linda Clark
+47000
+Administrative Assistant
+2312412
+424fsc
+54354
+
