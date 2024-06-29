@@ -15,5 +15,6 @@ public:
 struct Passer {
     File datasheet;
     BaseHandling Engine;
+    const char* fileName = "data.txt";
 };
 extern Passer Pass;

@@ -3,10 +3,10 @@
 
 void BaseHandling::FileChecker() {
     std::ifstream fileRead;
-    fileRead.open(fileName);
+    fileRead.open(Pass.fileName);
     if (!fileRead) {
         std::cerr << "no file found" << std::endl;
-        std::ofstream outfile(fileName);
+        std::ofstream outfile(Pass.fileName);
         if (!outfile) {
             std::cerr << "no file was created" << std::endl;
             exit(1);
@@ -28,7 +28,7 @@ void BaseHandling::ProjectRun() {
 
 void BaseHandling::ReadFile() {
     std::ifstream fileRead;
-    fileRead.open(fileName);
+    fileRead.open(Pass.fileName);
     std::string line;
     int eid;
     float salary;

@@ -6,7 +6,6 @@
 #include <vector>
 #include <iomanip>
 
-extern const char* fileName;
 class File; // Forward declaration to avoid circular dependency
 
 class BaseHandling {
