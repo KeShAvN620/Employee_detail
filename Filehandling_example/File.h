@@ -18,13 +18,17 @@ private:
 
 public:
 	void ReadFile();
+	void BackToMenu();
+	void AppendData();
+	void WriteToFile();
+public:
+
 	void SelectMenu();
 	void DisplayData();
 	void DisplaySpecialData();
 	void AddData();
 	void Overwrite();
 	void DeleteData();
-	void BackToMenu();
 
 private:
 	void ClearScreen();
