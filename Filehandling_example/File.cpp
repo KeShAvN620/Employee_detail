@@ -1,6 +1,8 @@
 #include "File.h"
 #include "BaseHandling.h"
 
+File::File():tID(Pass.Engine.GetId()), tName(Pass.Engine.GetName()), tSalary(Pass.Engine.GetSalary()){}
+
 void File::BackToMenu() {
     char flag;
     std::cout << "To menu: write 'Y/y'" << std::endl;
@@ -17,13 +19,14 @@ void File::SelectMenu() {
         << "3. Add New Employee  \n"
         << "4. Update Employee by Id \n"
         << "5. Delete Employee by Id\n"
-        << "6. Exit  \n"
+        << "6. Save Changes\n"
+        << "7. Exit  \n"
         << std::endl;
 
     unsigned int menuChoose;
     std::cin >> menuChoose;
-    if (menuChoose < 1 || menuChoose > 6) {
-        std::cout << "Please enter number from 1 to 6";
+    if (menuChoose < 1 || menuChoose > 7) {
+        std::cout << "Please enter number from 1 to 7" <<std::endl;
         exit(1);
     }
 
@@ -43,16 +46,18 @@ void File::SelectMenu() {
     case 5:
         DeleteData();
         break;
+    case 6:
+        Pass.Engine.WriteToFile();
+    case 7:
+        exit(0);
+        break;
     }
 }
 
 void File::DisplayData() {
     Pass.Engine.ClearScreen();
-    std::vector<int>& tId = Pass.Engine.GetId();
-    std::vector<std::string>& tName = Pass.Engine.GetName();
-    std::vector<float>& tSalary = Pass.Engine.GetSalary();
-    for (unsigned int i = 0; i < tId.size(); i++) {
-        std::cout << "ID = " << std::setw(3) << tId[i] << "     "
+    for (unsigned int i = 0; i < tID.size(); i++) {
+        std::cout << "ID = " << std::setw(3) << tID[i] << "     "
             << "Name = " << std::setw(20) << tName[i] << "     "
             << "Salary = " << tSalary[i] << std::endl;
     }
@@ -62,9 +67,6 @@ void File::DisplayData() {
 
 void File::DisplaySpecialData() {
     Pass.Engine.ClearScreen();  // clear window
-    std::vector<int>& tID = Pass.Engine.GetId();
-    std::vector<std::string>& tName = Pass.Engine.GetName();
-    std::vector<float>& tSalary = Pass.Engine.GetSalary();
         unsigned int tempid;
         unsigned int maxrange = tID.size();
         std::cout <<"Total Id from 1 to  "<< maxrange << "  " << "Enter Employee Id = " << std::endl;
@@ -83,9 +85,6 @@ void File::DisplaySpecialData() {
 
 void File::AddData() {
     Pass.Engine.ClearScreen(); // clear window
-    std::vector<int>& tID = Pass.Engine.GetId();
-    std::vector<std::string>& tName = Pass.Engine.GetName();
-    std::vector<float>& tSalary = Pass.Engine.GetSalary();
 float tempSalary;
 std::string tempName;
 	char flag;
@@ -99,12 +98,35 @@ do {
 	tSalary.push_back(tempSalary);
 	std::cout << "Want to add more press Y/y = ";
 	std::cin >> flag;
+    Pass.Engine.ClearScreen();
 } while (flag == 'Y' || flag == 'y');
 BackToMenu();
 }
 
 void File::Overwrite() {
     Pass.Engine.ClearScreen(); // clear window
+    std::string tempName; float tempSalary; char flag = 'n'; int tempID;
+    do {
+    unsigned int maxrange = tID.size();
+    std::cout << "Total Id from 1 to  " << maxrange << "  " << "Enter Employee Id = " << std::endl;
+    std::cout << "Enter the Employee ID" << std::endl;
+    std::cin >> tempID;
+    for (unsigned int i = 0; i < tID.size(); i++) {
+        if (tID[i] = tempID) {
+            std::cout << "Update Name =" << std::endl; std::cin >> tempName;
+            std::cout << "Update Salary =" << std::endl; std::cin >> tempSalary;
+            tName[i] = tempName;
+            tSalary[i] = tempSalary;
+            break;
+        }
+    }
+
+
+    std::cout << "Update More (Y/y) = " << std::endl;
+    std::cin >> flag;
+    Pass.Engine.ClearScreen();
+    } while (flag == 'Y' || flag == 'y');
+    BackToMenu();
 }
 
 void File::DeleteData() {

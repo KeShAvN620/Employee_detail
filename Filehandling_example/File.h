@@ -2,6 +2,13 @@
 #include "BaseHandling.h" 
 
 class File {
+private:
+    std::vector<int>& tID;
+    std::vector<std::string>& tName;
+    std::vector<float>& tSalary;
+public:
+    File();
+
 public:
     void BackToMenu();
     void SelectMenu();

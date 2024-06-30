@@ -23,7 +23,6 @@ public:
     void FileChecker();
     void ProjectRun();
     void ReadFile();
-    void AppendData();
     void WriteToFile();
     void ClearScreen();
 };

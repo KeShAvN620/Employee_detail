@@ -41,9 +41,6 @@ void BaseHandling::ReadFile() {
     fileRead.close();
 }
 
-void BaseHandling::AppendData() {
-    // Implementation
-}
 
 void BaseHandling::WriteToFile() {
     // Implementation
