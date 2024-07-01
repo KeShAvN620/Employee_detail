@@ -42,7 +42,6 @@ void BaseHandling::ReadFile() {
 
 void BaseHandling::WriteToFile() {
     ClearScreen();
-    char tempflag;
     std::ofstream WriteFile;
     WriteFile.open(Pass.fileName, std::ios::out | std::ios::trunc);
     if (!WriteFile){
@@ -52,8 +51,7 @@ void BaseHandling::WriteToFile() {
         WriteFile << eID[i] <<" " << eName[i] << " " << eSalary[i] << "\n";
      }
     WriteFile.close();
-    std::cout << "Updates was saved in the Database. Press Any Key and Then Enter " << std::endl;
-    std::cin >> tempflag;
+    std::cout << "Updates was saved in the Database. " << std::endl;
     Pass.datasheet.BackToMenu();
 }
 
