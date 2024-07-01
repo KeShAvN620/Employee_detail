@@ -29,21 +29,33 @@ void BaseHandling::ProjectRun() {
 void BaseHandling::ReadFile() {
     std::ifstream fileRead;
     fileRead.open(Pass.fileName);
-    std::string line;
-    int eid;
-    float salary;
-    while (!fileRead.eof()) {
-        fileRead >> eid >> line >> salary;
+    std::string line;       int eid;       float salary;
+    while (fileRead >> eid >> line >> salary) {
         eID.push_back(eid);
         eName.push_back(line);
         eSalary.push_back(salary);
     }
+    if (fileRead.bad()) { std::cerr << "Error occurred during file reading!" << std::endl; }
+
     fileRead.close();
 }
 
 
 void BaseHandling::WriteToFile() {
-    // Implementation
+    ClearScreen();
+    char tempflag;
+    std::ofstream WriteFile;
+    WriteFile.open(Pass.fileName, std::ios::out | std::ios::trunc);
+    if (!WriteFile){
+        std::cerr << " Write File was not open " << std::endl;
+    }
+    for (unsigned int i = 0; i < eID.size(); i++) {
+        WriteFile << eID[i] <<" " << eName[i] << " " << eSalary[i] << "\n";
+     }
+    WriteFile.close();
+    std::cout << "Updates was saved in the Database. Press Any Key and Then Enter " << std::endl;
+    std::cin >> tempflag;
+    Pass.datasheet.BackToMenu();
 }
 
 void BaseHandling::ClearScreen() {
