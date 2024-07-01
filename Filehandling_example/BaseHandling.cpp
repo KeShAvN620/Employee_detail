@@ -36,7 +36,6 @@ void BaseHandling::ReadFile() {
         eSalary.push_back(salary);
     }
     if (fileRead.bad()) { std::cerr << "Error occurred during file reading!" << std::endl; }
-
     fileRead.close();
 }
 

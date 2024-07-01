@@ -5,7 +5,7 @@ File::File():tID(Pass.Engine.GetId()), tName(Pass.Engine.GetName()), tSalary(Pas
 
 void File::BackToMenu() {
     char flag;
-    std::cout << "To menu: write 'Y/y'" << std::endl;
+    std::cout << "To Menu: Write (Y/y)" << std::endl;
     std::cin >> flag;
     if (flag == 'Y' || flag == 'y') { SelectMenu(); }
     exit(0);
@@ -26,7 +26,7 @@ void File::SelectMenu() {
     unsigned int menuChoose;
     std::cin >> menuChoose;
     if (menuChoose < 1 || menuChoose > 7) {
-        std::cout << "Please enter number from 1 to 7" <<std::endl;
+        std::cout << "Please Enter Number from 1 to 7" <<std::endl;
         exit(1);
     }
 
@@ -58,8 +58,8 @@ void File::DisplayData() {
     Pass.Engine.ClearScreen();
     for (unsigned int i = 0; i < tID.size(); i++) {
         std::cout << "ID = " << std::setw(3) << tID[i] << "     "
-            << "Name = " << std::setw(20) << tName[i] << "     "
-            << "Salary = " << tSalary[i] << std::endl;
+                  << "Name = " << std::setw(20) << tName[i] << "     "
+                  << "Salary = " << tSalary[i] << std::endl;
     }
     std::cout << std::endl << std::endl;
     BackToMenu();
