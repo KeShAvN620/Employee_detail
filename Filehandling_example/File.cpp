@@ -128,5 +128,20 @@ void File::Overwrite() {
 }
 
 void File::DeleteData() {
+    int tempID;
     Pass.Engine.ClearScreen(); // clear window
+    unsigned int maxrange = tID.size();
+    std::cout << "Total Id from 1 to  " << maxrange << "  " << "Enter Employee Id = " << std::endl;
+    std::cout << "Enter the Employee ID" << std::endl;
+    std::cin >> tempID;
+    for (unsigned int i = 0; i < maxrange; i++) {
+        if (tID[i] == tempID) {
+            tID.erase(tID.begin()+ i);
+            tName.erase(tName.begin() + i);
+            tSalary.erase(tSalary.begin() + i);
+            break;
+        }
+    }
+    for (unsigned i = 0; i < tID.size(); i++) { tID[i] = i+1; }
+    BackToMenu();
 }
