@@ -105,23 +105,21 @@ BackToMenu();
 
 void File::Overwrite() {
     Pass.Engine.ClearScreen(); // clear window
-    std::string tempName; float tempSalary; char flag = 'n'; int tempID;
+    std::string tempName; float tempSalary; char flag ; int tempID;
     do {
     unsigned int maxrange = tID.size();
     std::cout << "Total Id from 1 to  " << maxrange << "  " << "Enter Employee Id = " << std::endl;
     std::cout << "Enter the Employee ID" << std::endl;
     std::cin >> tempID;
-    for (unsigned int i = 0; i < tID.size(); i++) {
-        if (tID[i] = tempID) {
+    Pass.Engine.ClearScreen();
+    for (unsigned int i = 0; i < maxrange; i++) {
+        if (tID[i] == tempID) {
             std::cout << "Update Name =" << std::endl; std::cin >> tempName;
-            std::cout << "Update Salary =" << std::endl; std::cin >> tempSalary;
             tName[i] = tempName;
-            tSalary[i] = tempSalary;
-            break;
+            std::cout << "Update Salary =" << std::endl; std::cin >> tempSalary;
+            tSalary[i] = tempSalary; break;
         }
     }
-
-
     std::cout << "Update More (Y/y) = " << std::endl;
     std::cin >> flag;
     Pass.Engine.ClearScreen();
