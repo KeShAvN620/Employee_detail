@@ -9,7 +9,7 @@ void BaseHandling::FileChecker() {
         std::ofstream outfile(Pass.fileName);
         if (!outfile) {
             std::cerr << "no file was created" << std::endl;
-            exit(1);
+            return;
         }
         std::cout << "file was created" << std::endl;
         outfile.close();
