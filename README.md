@@ -62,7 +62,7 @@ Follow the on-screen instructions to choose an option and manage employee record
 ## Why This Code Structure?
 
 - **Simple and Organized:** Separates the main menu logic (`main.cpp`) 
-from the employee data management logic (`Employee.cpp` and `Database.cpp`), 
+from the employee data management logic (`File.cpp` and `BaseHandling.cpp`), 
 making the code easier to understand and maintain.
 - **Modular Design:** Each file has a specific role, 
 making it easier to extend features or modify functionality
